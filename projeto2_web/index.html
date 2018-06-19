@@ -8,10 +8,23 @@
         <link rel="stylesheet" type="text/css" href="Styles/bootstrap.min.css">
     </head>
     <body>
+        
         <div class="container">
             <div class="page-header">
                 <h1>Cadastro de Candidatos</h1>
             </div>
+
+            <nav>
+                <div class="text-center">
+                    <button class="btn btn-success" id="btn-cadastrar">Cadastrar</button>
+                    <button class="btn btn-primary">Listar</button>
+                    <button class="btn btn-info">Atualizar</button> 
+                    <button class="btn btn-danger">Apagar</button>
+                    <br>
+                    <br>
+                </div>
+            </nav>
+
             <form class="form-horizontal">
                 <div class="form-group row">
                     <label class="control-label col-sm-2" for="nome">Nome:</label>
@@ -102,14 +115,9 @@
                         <input name="senha" type="password" id="senha" class="form-control" placeholder="Entre com uma senha">
                     </div>
                 </div>
-
-                <div class="text-center">
-                    <button class="btn btn-success" id="btn-cadastrar">Cadastrar</button>
-                    <button class="btn btn-primary">Listar</button>
-                    <button class="btn btn-info">Atualizar</button> 
-                    <button class="btn btn-danger">Apagar</button>
-                </div>
             </form>
+        </div>
+        <div id="listagem">            
         </div>
         
     </body>
