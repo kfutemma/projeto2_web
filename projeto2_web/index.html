@@ -8,23 +8,23 @@
         <link rel="stylesheet" type="text/css" href="Styles/bootstrap.min.css">
     </head>
     <body>
-        
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Meu Candidato</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Lista de Candidatos</a></li>
+                    <li><a href="#">Remover</a></li>
+                    <li><a href="#">Remover</a></li>
+                </ul>
+            </div>
+        </nav>        
         <div class="container">
             <div class="page-header">
-                <h1>Cadastro de Candidatos</h1>
+                    <h1>Cadastro de Candidato</h1>
             </div>
-
-            <nav>
-                <div class="text-center">
-                    <button class="btn btn-success" id="btn-cadastrar">Cadastrar</button>
-                    <button class="btn btn-primary">Listar</button>
-                    <button class="btn btn-info">Atualizar</button> 
-                    <button class="btn btn-danger">Apagar</button>
-                    <br>
-                    <br>
-                </div>
-            </nav>
-
             <form class="form-horizontal">
                 <div class="form-group row">
                     <label class="control-label col-sm-2" for="nome">Nome:</label>
@@ -36,7 +36,7 @@
                 
                 <div class="form-group row">
                     <label class="control-label col-sm-2">Sexo:</label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-5">
                         <select class="form-control" name="sexo" id="sexo">
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
@@ -46,8 +46,8 @@
 
                 <div class="form-group row">
                     <label class="control-label col-sm-2">Data de nascimento:</label>
-                    <div class="col-sm-2"> 
-                        <input type="date" id="dataNasc" name="dataNasc" class="form-control" onblur="validarIdade()">
+                    <div class="col-sm-5"> 
+                        <input type="text" id="dataNasc" name="dataNasc" class="form-control" placeholder="Ex:2001-01-10" onblur="validarIdade()">
                     </div>
                 </div>
                 
@@ -60,21 +60,21 @@
                 
                 <div class="form-group row">
                     <label class="control-label col-sm-2">Número:</label>
-                    <div class="col-sm-1"> 
+                    <div class="col-sm-5"> 
                         <input name="numero" type="text" id="numero" class="form-control" placeholder="Ex:321">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="control-label col-sm-2">Bairro:</label>
-                    <div class="col-sm-3"> 
+                    <div class="col-sm-5"> 
                         <input name="bairro" id="bairro" type="text" class="form-control" placeholder="Ex:321">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="control-label col-sm-2">Estado:</label>
-                    <div class="col-sm-1"> 
+                    <div class="col-sm-5"> 
                         <select id="estadoID" name="estado" class="form-control" onclick="carregarCidades()">
                             </select>
                     </div>
@@ -82,7 +82,7 @@
                 
                 <div class="form-group row">
                     <label class="control-label col-sm-2">Cidade:</label>
-                    <div class="col-sm-3"> 
+                    <div class="col-sm-5"> 
                         <select id="cidadeID" name="cidade" class="form-control"></select>
                         </select>
                     </div>
@@ -90,14 +90,14 @@
                 
                 <div class="form-group row">
                     <label class="control-label col-sm-2">CPF:</label>
-                    <div class="col-sm-2"> 
+                    <div class="col-sm-5"> 
                         <input id="cpf" name="cpf" pattern="[0-9.]+" class="form-control" type="text" maxlength="11" placeholder="Ex: 12345678909" onblur="validarCPF()">
                     </div>
                 </div>
                 
                 <div class="form-group row">
-                    <label class="control-label col-sm-2" for="numCad">Número do candidato:</label>
-                    <div class="col-sm-1"> 
+                    <label class="control-label col-sm-2" for="numCad">Nº candidato:</label>
+                    <div class="col-sm-5"> 
                         <input name="cadjus" id="cadjus" type="text" class="form-control" placeholder="Ex: 0 - 5000">
                     </div>
                 </div>
@@ -116,9 +116,23 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <div id="listagem">            
-        </div>
-        
+            <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#ID</th>
+                                <th>Nome</th>
+                                <th>Sexo</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>E-mail</th>
+                                <th>CPF</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listagem">
+                        </tbody>
+                    </table>            
+                </div>
+        </div>        
     </body>
 </html>

@@ -4,7 +4,7 @@ function colocarEstadoNaLista(){
      for (var i = 0; i < estados.length; i++){
 
           var option = document.createElement("option");
-          option.innerText = estados[i].sigla ;
+          option.innerText = estados[i].nome ;
           option.value = '"' + estados[i].nome + '"';
 
           document.getElementById('estadoID').appendChild(option);
@@ -30,9 +30,6 @@ function carregarCidades(){
      }
 }
 
-$( document ).ready(function() {
-  colocarEstadoNaLista();
-});
 
 function TestaCPF() {
     
@@ -94,7 +91,8 @@ function getCidades(){
 
 */
 $(document).ready(function(){
-     $('#btn-cadastrar').click(function(){
+    colocarEstadoNaLista();
+    $('#btn-cadastrar').click(function(){
 
      var nome = $('#nome').val();
      var sexo = $('#sexo').val();
@@ -102,14 +100,17 @@ $(document).ready(function(){
      var rua = $('#rua').val();
      var numero = $('#numero').val();
      var bairro = $('#bairro').val();
-     var estado = $('#estado').val();
-     var cidade = $('#cidade').val();
+     var estado = $('#estadoID option:selected').text();
+     var cidade = $('#cidadeID option:selected').text();
      var cpf = $('#cpf').val();
      var cadjus = $('#cadjus').val();
      var email = $('#email').val();
      var senha = $('#senha').val();
 
      console.log(nome);
+     console.log(dataNasc);
+     console.log(estado);
+     console.log(cidade);
 
     $.ajax({
           type: 'POST',
@@ -119,14 +120,35 @@ $(document).ready(function(){
                 email:email, senha:senha},
           dataType: "json",
           success:function(data, status, jqXHR){
-              console.log(data);
+              alert(data.responseText);
           },
           error: function(data){
-              console.log(data.responseText);
+              console.log(data);
           } 
-        });
-     })
+    });
+  })
+
+  $('#btn-listar').click(function(){
+    $.get("http://andrebordignon.esy.es/php/consultacandidatos.php", function(data1, status){
+      console.log(JSON.parse(data1));
+      var tabelaDados = "";
+      var data = JSON.parse(data1);
+      for (let index = 0; index < data.length; index++) {
+        tabelaDados += '<tr>' +'<td>"'+ data[index].idcandidato + '"</td>' + '<td>"'+ data[index].nome + '"</td>' + '<td>"'+ data[index].sexo + '"</td>' + '<td>"'+ data[index].cidade + '"</td>'+
+                       '<td>"'+ data[index].estado + '"</td>' + '<td>"'+ data[index].email + '"</td>' + '<td>"'+ data[index].cpf + '"</td>' + '</tr>';                       
+        
+      }
+
+      $('#listagem').html(tabelaDados);
+        
+      });
+
+     // $("#listagem").html(data);
+    });
 });
+
+
+
 
 
 // _____________________________________________________________________________________
