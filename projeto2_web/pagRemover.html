@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Projeto 2 - WEB</title>
+        <script src="JavaScript/jquery-3.3.1.min.js"></script>
+        <script type="text/JavaScript" src="JavaScript/js.js"></script>
+        <link rel="stylesheet" type="text/css" href="Styles/bootstrap.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Meu Candidato</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Cadastrar</a></li>
+                    <li><a href="pagListaCandidatos.html">Lista de Candidatos</a></li>
+                    <li class="active"><a href="pagRemover.html">Remover</a></li>
+                    <li><a href="#">Atualizar</a></li>
+                </ul>
+            </div>
+        </nav>        
+        <div class="container">
+            <div class="page-header">
+                    <h1>Remover</h1>
+            </div>
+            <div>
+                <form class="form-horizontal">
+                    <div class="form-group row">
+                    <div class="col-sm-5">
+                        <input name="idcandidato" id="idRemover" class="form-control" type="text" placeholder="Ex: 1234">
+                    </div>
+                    <button class="btn btn-danger" id="btn-apagar">Apagar</button>
+                </div>   
+                </form>
+                <div>
+                    <p class="text-muted"">OBS: Insira o ID do candidato para removê-lo da lista</p>
+                </div>  
+            </div>
+        </div>
+    </body>
+</html>

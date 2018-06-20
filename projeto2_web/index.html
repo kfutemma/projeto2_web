@@ -14,16 +14,16 @@
                     <a class="navbar-brand" href="index.html">Meu Candidato</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Lista de Candidatos</a></li>
-                    <li><a href="#">Remover</a></li>
-                    <li><a href="#"></a></li>
+                    <li class="active"><a href="index.html">Cadastrar</a></li>
+                    <li><a href="pagListaCandidatos.html">Lista de Candidatos</a></li>
+                    <li><a href="pagRemover.html">Remover</a></li>
+                    <li><a href="#">Atualizar</a></li>
                 </ul>
             </div>
         </nav>        
         <div class="container">
             <div class="page-header">
-                    <h1>Cadastro de Candidato</h1>
+                    <h1>Cadastrar de Candidato</h1>
             </div>
             <form class="form-horizontal">
                 <div class="form-group row">
@@ -115,30 +115,12 @@
                         <input name="senha" type="password" id="senha" class="form-control" placeholder="Entre com uma senha">
                     </div>
                 </div>
-            </form>
-            <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#ID</th>
-                                <th>Nome</th>
-                                <th>Sexo</th>
-                                <th>Cidade</th>
-                                <th>Estado</th>
-                                <th>E-mail</th>
-                                <th>CPF</th>
-                            </tr>
-                        </thead>
-                        <tbody id="listagem">
-                        </tbody>
-                    </table>            
-                </div>
-        </div>        
+            </form>       
     </body>
 </html>
 
 <button class="btn btn-success" id="btn-cadastrar">Cadastrar</button>
-<button class="btn btn-primary" id="btn-listar">Listar</button>
+<button class="btn btn-primary">Listar</button>
 <button class="btn btn-info">Atualizar</button> 
 <button class="btn btn-danger">Apagar</button>
 <br>

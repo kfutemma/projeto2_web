@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Projeto 2 - WEB</title>
+        <script src="JavaScript/jquery-3.3.1.min.js"></script>
+        <script type="text/JavaScript" src="JavaScript/js.js"></script>
+        <link rel="stylesheet" type="text/css" href="Styles/bootstrap.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Meu Candidato</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Cadastrar</a></li>
+                    <li class="active"><a href="pagListaCandidatos.html">Lista de Candidatos</a></li>
+                    <li><a href="pagRemover.html">Remover</a></li>
+                    <li><a href="#">Atualizar</a></li>
+                </ul>
+            </div>
+        </nav>        
+        <div class="container">
+            <div class="page-header">
+                    <h1>Lista de Candidatos</h1>
+            </div>
+            <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#ID</th>
+                                <th>Nome</th>
+                                <th>Sexo</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>E-mail</th>
+                                <th>CPF</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listagem">
+                        </tbody>
+                    </table>            
+                </div>
+            </div> 
+        </div>
+    </body>
+</html>
+
+<button class="btn btn-success" id="btn-cadastrar">Cadastrar</button>
+<button class="btn btn-primary" id="btn-listar">Listar</button>
+<button class="btn btn-info">Atualizar</button> 
+<button class="btn btn-danger">Apagar</button>
+<br>
+<br>

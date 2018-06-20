@@ -72,26 +72,12 @@ function validarIdade() {
      }
 }
 
-/*
-function getCidades(){
-     var estadosaaa = document;
 
-     var xhr = new XMLHttpRequest();
-     xhr.open("POST", "#", true);
 
-     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-     xhr.send("estado"+estado);
-     xhr.onreadystatechange = function(){
-          if (xhr.readyState == 4 && xhr.status == 200) {
-               document.getElementById()
-          }
-     }
-}
-
-*/
 $(document).ready(function(){
+  
     colocarEstadoNaLista();
+
     $('#btn-cadastrar').click(function(){
 
      var nome = $('#nome').val();
@@ -134,17 +120,45 @@ $(document).ready(function(){
       var tabelaDados = "";
       var data = JSON.parse(data1);
       for (let index = 0; index < data.length; index++) {
-        tabelaDados += '<tr>' +'<td>"'+ data[index].idcandidato + '"</td>' + '<td>"'+ data[index].nome + '"</td>' + '<td>"'+ data[index].sexo + '"</td>' + '<td>"'+ data[index].cidade + '"</td>'+
-                       '<td>"'+ data[index].estado + '"</td>' + '<td>"'+ data[index].email + '"</td>' + '<td>"'+ data[index].cpf + '"</td>' + '</tr>';                       
+        tabelaDados += '<tr>' +'<td>'+ data[index].idcandidato + '</td>' + '<td>'+ data[index].nome + '</td>' + '<td>'+ data[index].sexo + '</td>' + '<td>'+ data[index].cidade + '</td>'+
+                       '<td>'+ data[index].estado + '</td>' + '<td>'+ data[index].email + '</td>' + '<td>'+ data[index].cpf + '</td>' + '</tr>';                       
         
       }
 
       $('#listagem').html(tabelaDados);
         
       });
-
-     // $("#listagem").html(data);
     });
+
+
+  $('#btn-apagar').click(function(){
+      var idRemover = $('#idRemover').val();
+      $.post( "http://andrebordignon.esy.es/php/deletacandidato.php?", {'idcandidato':+'"'+idRemover}+'"+,function( data ) {
+          alert(data.responseText);
+      });
+  })  
+/*
+$('#btn-apagar').click(function(){
+
+     var idRemover = $('#idRemover').val();
+
+     console.log(idRemover);
+
+    $.ajax({
+          type: 'POST',
+          url:"http://andrebordignon.esy.es/php/deletacandidato.php?",
+          data:{idcandidato:idRemover},
+          dataType: "json",
+          success:function(data, status, jqXHR){
+              alert(data.responseText);
+          },
+          error: function(data){
+              console.log(data);
+              alert(data.responseText);
+          } 
+    });
+  })
+*/
 });
 
 
