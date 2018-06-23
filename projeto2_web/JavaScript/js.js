@@ -104,68 +104,26 @@ $(document).ready(function(){
           data:{nome:nome, sexo:sexo,dataNasc:dataNasc,rua:rua,numero:numero,
                 bairro:bairro, estado:estado, cidade:cidade, cpf:cpf, cadjus:cadjus,
                 email:email, senha:senha},
-          dataType: "json",
           success:function(data, status, jqXHR){
-              alert(data.responseText);
+               alert(data);
+               $('#nome').val("");
+               $('#sexo').val("");
+               $('#dataNasc').val("");
+               $('#rua').val("");
+               $('#numero').val("");
+               $('#bairro').val("");
+               $('#cpf').val("");
+               $('#cadjus').val("");
+               $('#email').val("");
+               $('#senha').val("");
+              console.log(data);
           },
           error: function(data){
-              console.log(data);
+              //console.log(data.responseText);
           } 
     });
   })
-
-  $('#btn-listar').click(function(){
-    $.get("http://andrebordignon.esy.es/php/consultacandidatos.php", function(data1, status){
-      console.log(JSON.parse(data1));
-      var tabelaDados = "";
-      var data = JSON.parse(data1);
-      for (let index = 0; index < data.length; index++) {
-        tabelaDados += '<tr>' +'<td>'+ data[index].idcandidato + '</td>' + '<td>'+ data[index].nome + '</td>' + '<td>'+ data[index].sexo + '</td>' + '<td>'+ data[index].cidade + '</td>'+
-                       '<td>'+ data[index].estado + '</td>' + '<td>'+ data[index].email + '</td>' + '<td>'+ data[index].cpf + '</td>' + '</tr>';                       
-        
-      }
-
-      $('#listagem').html(tabelaDados);
-        
-      });
-    });
-
-
-  $('#btn-apagar').click(function(){
-      var idRemover = $('#idRemover').val();
-      $.post( "http://andrebordignon.esy.es/php/deletacandidato.php?", {'idcandidato':+'"'+idRemover}+'"+,function( data ) {
-          alert(data.responseText);
-      });
-  })  
-/*
-$('#btn-apagar').click(function(){
-
-     var idRemover = $('#idRemover').val();
-
-     console.log(idRemover);
-
-    $.ajax({
-          type: 'POST',
-          url:"http://andrebordignon.esy.es/php/deletacandidato.php?",
-          data:{idcandidato:idRemover},
-          dataType: "json",
-          success:function(data, status, jqXHR){
-              alert(data.responseText);
-          },
-          error: function(data){
-              console.log(data);
-              alert(data.responseText);
-          } 
-    });
-  })
-*/
 });
-
-
-
-
-
-// _____________________________________________________________________________________
 
 // JSON COM TODAS AS CIDADES DO BRASIL
 
