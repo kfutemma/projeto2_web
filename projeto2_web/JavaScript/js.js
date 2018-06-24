@@ -119,7 +119,7 @@ $(document).ready(function(){
               console.log(data);
           },
           error: function(data){
-              //console.log(data.responseText);
+              console.log(data.responseText);
           } 
     });
   })

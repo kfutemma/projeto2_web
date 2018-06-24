@@ -1,4 +1,4 @@
-
+  
 
 $(document).ready(function(){
 	carregarCandidatos();
@@ -6,10 +6,7 @@ $(document).ready(function(){
 
 
 
-$("#myBtn").click(function(){
-        console.log("clicou");
-         $("#myModal").modal("show");
-    });
+
 });
 
 function carregarCandidatos(){
@@ -18,51 +15,20 @@ function carregarCandidatos(){
       var tabelaDados = "";
       var data = JSON.parse(data1);
       for (let index = 0; index < data.length; index++) {
+
+        var id= index;
+
         var excluirCandidato = '<button onClick="excluirCandidato('+data[index].idcandidato+')" class="btn btn-danger">Remover</button>';
 
-        if(data[index].nome == null){
-            data[index].nome = ".";
-        }
-        if(data[index].sexo == null){
-            data[index].sexo = ".";
-        }
-        if(data[index].cidade == null){
-            data[index].cidade = ".";
-        }
-        if(data[index].estado  == null){
-          data[index].estado = ".";
-        }
-        if(data[index].email == null){
-          data[index].email = ".";
-        }
-        if(data[index].cpf == null){
-          data[index].cpf = ".";
-        }
-        if(data[index].datanasc == null){
-          data[index].datanasc = ".";
-        }
-        if(data[index].rua == null){
-          data[index].rua = ".";
-        }
-        if(data[index].numero == null){
-          data[index].numero = ".";
-        }
-        if(data[index].senha == null){
-          data[index].senha = ".";
-        }
-        if(data[index].cadjus == null){
-          data[index].cadjus = ".";
-        }
+        var editarCandidato = '<button onClick="editarCandidato('+id+')" class="btn btn-warning openmodal">Editar</button>';
 
-
-        var editarCandidato = '<button onClick="editarCandidato('+data[index].idcandidato+','+ data[index].nome +','+data[index].sexo+','+data[index].cidade+','+
-                                                                 +','+ data[index].estado +','+data[index].email+','+data[index].cpf+','+data[index].datanasc+','+
-                                                                 data[index].rua+','+data[index].numero+','+data[index].senha+','+data[index].cadjus+')" class="btn btn-warning">Editar</button>';
-        console.log(excluirCandidato);
         console.log(editarCandidato);
-        tabelaDados += '<tr>' +'<td>'+ data[index].idcandidato + '</td>' + '<td>'+ data[index].nome + '</td>' + '<td>'+ data[index].sexo + 
-                       '</td>' + '<td>'+ data[index].cidade + '</td>'+ '<td>'+ data[index].estado + '</td>' + '<td>'+ data[index].email +
-                       '</td>' + '<td>'+ data[index].cpf + '</td>' + '<td>'+ excluirCandidato + '</td>' + '<td>'+ editarCandidato + '</td>' +'</tr>';                       
+        
+        tabelaDados += '<tr>' +
+                              '<td>'+ data[index].idcandidato + '</td>' + '<td id=nome'+id+'>'+ data[index].nome + '</td>' + '<td id=sexo'+id+'>'+ data[index].sexo + 
+                              '</td>' + '<td id=cidade'+id+'>'+ data[index].cidade + '</td>'+ '<td id=estado'+id+'>'+ data[index].estado + '</td>' + '<td id=email'+id+'>'+ data[index].email +
+                              '</td>' + '<td id=cpf'+id+'>'+ data[index].cpf + '</td>' + '<td>'+ excluirCandidato + '</td>' + '<td>'+ editarCandidato + '</td>'+
+                       '</tr>';                       
         
       }
 
@@ -79,6 +45,7 @@ function excluirCandidato(idcandidato){
 
       var idRemover = 'http://andrebordignon.esy.es/php/deletacandidato.php?idcandidato='+ idcandidato;
       console.log(idRemover);
+
           $.ajax({
             url: idRemover,
               success:function(data){
@@ -94,12 +61,41 @@ function excluirCandidato(idcandidato){
     }
 }
 
-function editarCandidato(idcandidato, nome, sexo, cidade, estado, email, cpf, dataNasc,rua,numero,senha, cadjus){
 
-    var link = 'http://andrebordignon.esy.es/php/atualizacandidato.php?idcandidato='+ idcandidato + '&nome='+nome +'&sexo='+sexo+'&datanasc='+datanasc+'&rua='+rua+'&numero'+numero+'&cpf='+cpf+'cadjus='+cadjus+'&email='+email+'&senha='+ senha;
+function editarCandidato(id){
 
+    $('#nome').val($('#nome'+id).text());
+    $('#sexo').val($('#sexo'+id).text());
+    $('#dataNasc').val($('#dataNasc'+id).val());
+    $('#rua'+id).val();
+    $('#numero'+id).val();
+    $('#estadoID option:selected').text();
+    $('#cidadeID option:selected').text();
+    $('#cpf'+id).val();
+    $('#cadjus'+id).val();
+    $('#email'+id).val();
+    $('#senha').val();
+
+    
+    $("#myModal").modal("show");
+    /*
+    var nome = $('#nome').val();
+    var sexo = $('#sexo').val();
+    var dataNasc = $('#dataNasc').val();
+    var rua = $('#rua').val();
+    var numero = $('#numero').val();
+    var bairro = $('#bairro').val();
+    var estado = $('#estadoID option:selected').text();
+    var cidade = $('#cidadeID option:selected').text();
+    var cpf = $('#cpf').val();
+    var cadjus = $('#cadjus').val();
+    var email = $('#email').val();
+    var senha = $('#senha').val();
+
+    
+    
     $.ajax({
-            url: link,
+            url: 'http://andrebordignon.esy.es/php/atualizacandidato.php',
               success:function(data){
                 alert(data);
                   console.log(data);
@@ -110,5 +106,6 @@ function editarCandidato(idcandidato, nome, sexo, cidade, estado, email, cpf, da
                 alert(data);
               }   
           });
+          */
 }
 
