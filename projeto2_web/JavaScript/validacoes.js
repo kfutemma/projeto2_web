@@ -18,7 +18,6 @@ function TestaCPF(strCPF) {
      
     if ((Resto == 10) || (Resto == 11))  Resto = 0;
     if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
-    console.log("rodou");
     return true;
 }
 
@@ -36,7 +35,7 @@ function validarCPF(cpf) {
 
 function validarIdade(idade) {
 
-    if(idade == "0000-00-00"){
+    if(idade == ""){
       if ($("#dataNasc").parent().next(".validation").length == 0){
                 $("#dataNasc").parent().after("<div class='validation'>Data de nascimento inválida</div>");
                 return false;
@@ -49,7 +48,7 @@ function validarIdade(idade) {
 
      if (idade <= 18){
           if ($("#dataNasc").parent().next(".validation").length == 0){
-                $("#dataNasc").parent().after("<div class='validation'>Nome inválido</div>");
+                $("#dataNasc").parent().after("<div class='validation'>Data de nascimento inválido</div>");
                 return false;
         } 
      }
@@ -87,8 +86,6 @@ function validarCad(cadjus) {
     var aux = parseInt(cadjus);
 
     if (aux > 5000){
-        console.log(aux);
-        //setCustomValidity("Nº do candidato inválido");
 
         if ($("#cadjus").parent().next(".validation").length == 0){
                 $("#cadjus").parent().after("<div class='validation'>Nº do candidato inválido</div>");
@@ -96,7 +93,6 @@ function validarCad(cadjus) {
         } 
     }
     else if(aux <= 0){
-        console.log(aux);
         if ($("#cadjus").parent().next(".validation").length == 0){
               $("#cadjus").parent().after("<div class='validation'>Nº do candidato inválido</div>");
               return false;
@@ -112,5 +108,25 @@ function validarCad(cadjus) {
     return true;
   }
 
-
+function validarSenhaCadastro(senha1, senha2){
+  if (senha1 != senha2) {
+    if ($("#senha2").parent().next(".validation").length == 0){
+              $("#senha2").parent().after("<div class='validation'>Senhas não são identicas</div>");
+              return false;
+        } 
+  }
+  $("#senha2").parent().next(".validation").remove();
+  return true;
+}
+  
+function validarSenhaEditar(senha1, senha2){
+  if (senha1 != senha2) {
+    if ($("#senha").parent().next(".validation").length == 0){
+              $("#senha").parent().after("<div class='validation'>Senhas não são identicas</div>");
+              return false;
+        } 
+  }
+  $("#senha").parent().next(".validation").remove();
+  return true;
+}
   
