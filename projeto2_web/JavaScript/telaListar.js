@@ -13,9 +13,9 @@ function carregarCandidatos(){
 
         var id= index;
 
-        var excluirCandidato = '<button onClick="excluirCandidato('+data[index].idcandidato+')" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span></button>';
+        var excluirCandidato = '<a onClick="excluirCandidato('+data[index].idcandidato+')" class="btn btn-danger">Remover</button>';
 
-        var editarCandidato = '<button onClick="editarCandidato('+id+')" class="btn btn-default openmodal"><span class="glyphicon glyphicon-pencil"></span></button>';
+        var editarCandidato = '<button onClick="editarCandidato('+id+')" class="btn btn-default openmodal">Editar</button>';
 
         console.log(editarCandidato);
         
