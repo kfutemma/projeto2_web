@@ -92,20 +92,22 @@ function editarCandidato(id){
         var cadjus = $('#cadjus').val();
         var email = $('#email').val();
 
-        $.ajax({
-          type: 'POST',
-          url:'http://andrebordignon.esy.es/php/atualizacandidato.php',
-          data:{idcandidato:idcandidato,nome:nome, sexo:sexo,dataNasc:dataNasc,rua:rua,
-                numero:numero,estado:estado, cidade:cidade, cpf:cpf, cadjus:cadjus,
-                email:email},
-          success:function(data, status, jqXHR){
-              alert(data);
-              console.log(data);
-              location.reload();
-          },
-          error: function(data){
-              console.log(data);
-          } 
-      });
+        if(validarCPF(cpf) && validarIdade(dataNasc) && validarNome(nome) && validarCad(cadjus)){
+            $.ajax({
+              type: 'POST',
+              url:'http://andrebordignon.esy.es/php/atualizacandidato.php',
+              data:{idcandidato:idcandidato,nome:nome, sexo:sexo,dataNasc:dataNasc,rua:rua,
+                    numero:numero,estado:estado, cidade:cidade, cpf:cpf, cadjus:cadjus,
+                    email:email},
+              success:function(data, status, jqXHR){
+                  alert(data);
+                  console.log(data);
+                  location.reload();
+              },
+              error: function(data){
+                  console.log(data);
+              } 
+          });
+        }
     });
 }

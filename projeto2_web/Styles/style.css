@@ -35,5 +35,10 @@
     display:inline;
     width: 150px;
     height:150px;
-
   }
+
+  .validation
+    {
+      color: red;
+      margin-bottom: 20px;
+    }

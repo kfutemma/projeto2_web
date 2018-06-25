@@ -15,12 +15,7 @@ $(document).ready(function(){
      var email = $('#email').val();
      var senha = $('#senha').val();
 
-     console.log(nome);
-     console.log(dataNasc);
-     console.log(estado);
-     console.log(cidade);
-
-     if(validarCPF() == true && validarIdade()== true && validarNome()== true && validarNumero()== true){
+     if(validarCPF(cpf) && validarIdade(dataNasc) && validarNome(nome) && validarCad(cadjus)){
       $.ajax({
         type: 'POST',
         url:"http://andrebordignon.esy.es/php/incluicandidato.php",
@@ -40,6 +35,8 @@ $(document).ready(function(){
               $('#email').val("");
               $('#senha').val("");
               console.log(data);
+
+
           },
           error: function(data){
               console.log(data.responseText);
