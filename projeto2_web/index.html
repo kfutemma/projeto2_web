@@ -12,7 +12,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Meu Candidato</a>
+                    <a class="navbar-brand" href="initialPage.html">Meu Candidato</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.html">Cadastrar</a></li>
@@ -90,7 +90,7 @@
                 <div class="form-group row">
                     <label class="control-label col-sm-2">CPF:</label>
                     <div class="col-sm-5"> 
-                        <input id="cpf" name="cpf" pattern="[0-9.]+" class="form-control" type="text" maxlength="11" placeholder="Ex: 12345678909">
+                        <input id="cpf" name="cpf" onblur="validarCPF()" pattern="[0-9.]+" class="form-control" type="text" maxlength="11" placeholder="Ex: 12345678909">
                     </div>
                 </div>
                 
